@@ -1,0 +1,87 @@
+
+INSERT INTO tb_departamentos
+           (descricao_depto)
+     VALUES
+           ('RH'),
+		   ('Contabilidade'),
+		   ('Obras'),
+		   ('Comercial'),
+		   ('Compras');
+
+
+INSERT INTO tb_funcionarios
+           (nome
+           ,cpf
+           ,departamento_id)
+     VALUES
+           ('Funcionario 1','23598322232' , 1),
+		   ('Funcionario 2','32986564665' , 2),
+		   ('Funcionario 3','85465987623' , 3),
+		   ('Funcionario 4','14979562385' , 4),
+		   ('Funcionario 5','95659798246' , 5);
+
+
+INSERT INTO tb_projetos
+           (descricao_projeto)
+     VALUES
+           ('Pesquisa'),
+		   ('Social'),
+		   ('Empresarial'),
+		   ('Arquitetonico'),
+		   ('Software');
+
+
+INSERT INTO tb_projeto_empregado
+           (data_inicial,data_final,funcionario_id,projeto_id)
+     VALUES
+           ('2015-05-30','2024-05-15', 1,1),
+		   ('2017-11-25','2024-05-15', 2,1),
+		   ('2008-03-29','2024-05-15', 3,1),
+
+		   ('2020-02-22','2024-05-15', 4,2),
+		   ('2021-01-29','2024-05-15', 5,2),
+		   ('2022-04-14','2024-05-15', 1,2),
+
+		   ('2024-03-26','2024-05-15', 2,3),
+		   ('2020-12-16','2024-05-15', 3,3),
+		   ('2021-01-28','2024-05-15', 4,3),
+
+		   ('2023-11-01','2024-05-15', 5,4),
+		   ('2020-09-02','2024-05-15', 1,4),
+		   ('2023-12-18','2024-05-15', 2,4),
+
+		   ('2023-11-01','2024-05-15', 3,5),
+		   ('2020-04-02','2024-05-15', 4,5),
+		   ('2023-11-18','2024-05-15', 5,5);
+
+
+ALTER TABLE tb_funcionarios ADD salario decimal;
+
+UPDATE tb_funcionarios SET salario  = 1500 WHERE departamento_id = 1;
+
+UPDATE tb_funcionarios SET salario  = 2200 WHERE departamento_id = 2;
+
+UPDATE tb_funcionarios SET salario  = 4000 WHERE departamento_id = 3;
+
+UPDATE tb_funcionarios SET salario  = 1800 WHERE departamento_id = 4;
+
+UPDATE tb_funcionarios SET salario  = 2500 WHERE departamento_id = 5;
+
+UPDATE tb_funcionarios SET salario  = salario * 1.15 WHERE departamento_id = 1;
+
+UPDATE tb_projetos SET descricao_projeto  = 'Projeto Churrasco' WHERE id_projeto = 1;
+
+DELETE FROM tb_projeto_empregado WHERE funcionario_id = 2;
+
+DELETE FROM tb_projeto_empregado WHERE projeto_id = 2;
+
+INSERT INTO tb_departamentos
+           (descricao_depto)
+     VALUES
+           ('Juridico');
+
+INSERT INTO tb_projetos
+           (descricao_projeto)
+     VALUES
+           ('Estrutural');
+
